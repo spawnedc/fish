@@ -1,1 +1,1 @@
-web: gunicorn fish.wsgi
+web: gunicorn src.fish.wsgi
