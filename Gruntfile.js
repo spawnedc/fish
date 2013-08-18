@@ -108,7 +108,7 @@ module.exports = function(grunt) {
 		shell: {
 			// Shell command for running Django server
 			devserver: {
-				command: 'foreman start',
+				command: 'python manage.py runserver',
 				options: {
 					stdout: true,
 					stderr: true

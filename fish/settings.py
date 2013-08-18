@@ -4,7 +4,7 @@ import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-DEBUG = True
+DEBUG = os.environ.get('ON_PRODUCTION', True)
 TEMPLATE_DEBUG = DEBUG
 
 APP_TITLE = "Fish."
@@ -73,13 +73,14 @@ STATIC_ROOT = 'staticfiles'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+STATIC_URL = '/static-dev/' if DEBUG else '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(BASE_DIR, 'static-dev'),
     os.path.join(BASE_DIR, 'static'),
 )
 
