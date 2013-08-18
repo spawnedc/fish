@@ -162,13 +162,22 @@ module.exports = function(grunt) {
 		'copy'
 	]);
 
-	// Default: build! Add `test` task to this when we have one
-	// This will get called before deploying, so should do allthethings really
-	grunt.registerTask('default', ['build']);
-
 	// Local server task
-	grunt.registerTask('serve', ['sass:dev', 'concurrent:serve']);
+	grunt.registerTask('serve', [
+		// Compile sass before we start serving
+		'sass:dev',
+		// Watch all the thingz and run the devserver
+		'concurrent:serve'
+	]);
 
 	// Deploy task
-	grunt.registerTask('deploy', ['build', 'shell:deploy']);
+	grunt.registerTask('deploy', [
+		// Build all the thingz first
+		'build',
+		// Then push to Heroku
+		'shell:deploy'
+	]);
+
+	// Default: serve! Add `test` task to this when we have one
+	grunt.registerTask('default', ['serve']);
 };
