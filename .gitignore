@@ -4,5 +4,4 @@
 local_settings.py
 .sass-cache/
 fish/static-dev/css/
-fish/static/
 node_modules/
