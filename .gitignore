@@ -5,3 +5,4 @@ local_settings.py
 .sass-cache/
 fish/static-dev/css/
 node_modules/
+fish.sqlite3

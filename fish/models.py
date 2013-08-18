@@ -2,6 +2,7 @@ from django.db import models
 from croniter import croniter
 from datetime import datetime
 
+
 class FishBaseModel(models.Model):
     class Meta:
         abstract = True
