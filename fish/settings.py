@@ -3,8 +3,8 @@ import os
 import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-DEBUG = os.environ['ON_PRODUCTION'] or True
+on_production = bool(os.environ.get('ON_PRODUCTION', False))
+DEBUG = not on_production
 TEMPLATE_DEBUG = DEBUG
 
 APP_TITLE = "Fish."
