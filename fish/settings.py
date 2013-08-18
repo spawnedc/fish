@@ -4,7 +4,7 @@ import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-DEBUG = os.environ.get('ON_PRODUCTION', True)
+DEBUG = os.environ['ON_PRODUCTION'] or True
 TEMPLATE_DEBUG = DEBUG
 
 APP_TITLE = "Fish."
