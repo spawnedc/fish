@@ -31,7 +31,7 @@ DATABASES = {
 }
 
 if not DEBUG:
-    DATABASES['default'] =  dj_database_url.config()
+    DATABASES['default'] =  dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
