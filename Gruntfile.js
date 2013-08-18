@@ -120,6 +120,13 @@ module.exports = function(grunt) {
 					stdout: true,
 					stderr: true
 				}
+			},
+			removePYC: {
+				command: 'find . -name "*.pyc" -exec rm -rf {} \\;',
+				options: {
+					stdout: true,
+					stderr: true
+				}
 			}
 		},
 
@@ -145,6 +152,8 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [
 		// Remove previously built files
 		'clean',
+		// Remove pyc files
+		'shell:removePYC',
 		// Check all our JS is ship-shape – we skip some files in .jshintignore
 		'jshint',
 		// Create our CSS files with sass
