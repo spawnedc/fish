@@ -113,6 +113,13 @@ module.exports = function(grunt) {
 					stdout: true,
 					stderr: true
 				}
+			},
+			deploy: {
+				command: 'git push heroku master',
+				options: {
+					stdout: true,
+					stderr: true
+				}
 			}
 		},
 
@@ -152,4 +159,7 @@ module.exports = function(grunt) {
 
 	// Local server task
 	grunt.registerTask('serve', ['sass:dev', 'concurrent:serve']);
+
+	// Deploy task
+	grunt.registerTask('deploy', ['build', 'shell:deploy']);
 };
