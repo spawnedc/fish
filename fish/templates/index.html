@@ -1,31 +1,33 @@
-{% load i18n %}<!DOCTYPE html>
-<html data-ng-app="fish.app">
+<!DOCTYPE html>
+<html data-ng-app="fish">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>{% block page_title %}{% endblock %}{{ settings.APP_TITLE }}</title>
+		<title>{{ settings.APP_TITLE }}</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="{{ settings.STATIC_URL }}css/styles.css">
 	</head>
-	<body>
-		<header>
-			{% include 'includes/header.html' %}
-		</header>
+	<body data-ng-controller="AppCtrl">
+		<header class="app-header grid grid--center" data-ng-include="'{{ settings.STATIC_URL }}js/header.html'"></header>
 
-		<div class="content">
-			<div class="container"></div>
+		<div class="content grid grid--center">
+			<div class="container grid__item two-thirds palm--one-whole lap--five-sixths" data-ng-view></div>
 		</div>
 
-		<footer>
-			{% include 'includes/footer.html' %}
-		</footer>
+		<footer class="app-footer grid grid--center" data-ng-include="'{{ settings.STATIC_URL }}js/footer.html'"></footer>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular-cookies.min.js"></script>
 		<script src="{{ settings.STATIC_URL }}js/fish.js"></script>
+		<script>
+			fish.tplPath = "{{ settings.STATIC_URL }}js/";
+			fish.appTitle = "{{ settings.APP_TITLE }}";
+		</script>
 		<script src="{{ settings.STATIC_URL }}js/app.js"></script>
+		<script src="{{ settings.STATIC_URL }}js/dashboard/dashboard.js"></script>
+		<script src="{{ settings.STATIC_URL }}js/payments/payments.js"></script>
 		{% if not settings.DEBUG %}
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>
