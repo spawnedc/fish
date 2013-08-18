@@ -1,4 +1,4 @@
-/*global angular */
+/*global angular, fish */
 (function () {
 	"use strict";
 	angular.module('dashboard', [])

@@ -86,7 +86,7 @@ module.exports = function(grunt) {
 			js: {
 				files: [
 					{
-						dest: '<%= builtJsDir %>/',
+						dest: '<%= buildDir %>/',
 						src: ['js/**/*'],
 						expand: true,
 						cwd: '<%= devMediaDir %>/'
