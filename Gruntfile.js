@@ -37,7 +37,14 @@ module.exports = function(grunt) {
 				noarg: true,
 				smarttabs: true,
 				sub: true,
-				undef: true
+				undef: true,
+				globals: {
+					"_": true,
+					"angular": true
+				},
+				ignores: [
+					'<%= devJsDir %>/libs/**/*.js',
+				]
 			},
 			all: [
 				'<%= devJsDir %>/**/*.js',
