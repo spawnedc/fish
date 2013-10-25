@@ -29,8 +29,12 @@
 			fish.appTitle = "{{ settings.APP_TITLE }}";
 		</script>
 		<script src="{{ settings.STATIC_URL }}js/app.js"></script>
+		<!-- Dashboard -->
 		<script src="{{ settings.STATIC_URL }}js/dashboard/dashboard.js"></script>
+		<!-- Payments -->
 		<script src="{{ settings.STATIC_URL }}js/payments/payments.js"></script>
+		<script src="{{ settings.STATIC_URL }}js/payments/services/PaymentService.js"></script>
+
 		{% if not settings.DEBUG %}
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>
