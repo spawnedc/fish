@@ -10,6 +10,6 @@
 
 			return {
 				getPayments: _getPayments
-			}
-		}])
+			};
+		}]);
 }());
