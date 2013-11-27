@@ -10,7 +10,12 @@
 			});
 		}])
 
-		.controller('PaymentsCtrl', ['$scope', '$location', function ($scope, $location) {
+		.controller('PaymentsCtrl', ['$scope', 'PaymentService', function ($scope, PaymentService) {
 			$scope.page.section = 'payments';
+			var paymentPromise = PaymentService.getPayments();
+
+			paymentPromise.then(function (payments) {
+				$scope.payments = payments;
+			});
 		}]);
 }());

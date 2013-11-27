@@ -12,5 +12,6 @@
 
 		.controller('DashboardCtrl', ['$scope', '$location', function ($scope, $location) {
 			$scope.page.section = 'dashboard';
+			$scope.page.title = 'Dashboard';
 		}]);
 }());

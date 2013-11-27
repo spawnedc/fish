@@ -1,7 +1,7 @@
 /*global angular */
 (function () {
 	"use strict";
-	angular.module('fish', ['ngCookies', 'restangular', 'dashboard', 'payments'])
+	angular.module('fish', ['ngRoute', 'restangular', 'dashboard', 'payments'])
 
 		.config(['$locationProvider', '$routeProvider', '$interpolateProvider', 'RestangularProvider',
 			function($locationProvider, $routeProvider, $interpolateProvider, RestangularProvider) {
@@ -9,15 +9,16 @@
 			$interpolateProvider.startSymbol('[[');
 			$interpolateProvider.endSymbol(']]');
 
+			// Set the html5 mode on for the urls
 			$locationProvider.html5Mode(true);
-			$routeProvider.otherwise({ redirectTo: '/dashboard' });
+
+			// Redirect to dashboard when on root
+			$routeProvider.when('/', { redirectTo: '/dashboard' });
 
 			// Restangular configuration
 			RestangularProvider.setBaseUrl("/api");
-
 			// trailing slash
 			RestangularProvider.setRequestSuffix('/');
-
 			// Access to the original response
 			// see: https://github.com/mgonto/restangular#how-can-i-access-the-unrestangularized-element-as-well-as-the-restangularized-one
 			RestangularProvider.setResponseExtractor(function(response, operation) {

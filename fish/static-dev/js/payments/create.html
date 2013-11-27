@@ -1,0 +1,26 @@
+<div class="grid">
+	<h1 class="grid__item two-thirds">Create new payment</h1><!--
+ --><div class="header-button-holder grid__item one-third">
+		<a class="btn btn-primary" href="/payments">Back to list</a>
+	</div>
+</div>
+
+<form name="paymentCreateForm" data-ng-submit="createPayment()">
+	<div>
+		<label>Title</label>
+		<input type="text" name="title" data-ng-model="payment.title">
+	</div>
+	<div>
+		<label>Start date</label>
+		<input type="date" name="start_date" data-ng-model="payment.start_date">
+	</div>
+	<div>
+		<label>Amount</label>
+		<input type="number" name="amount" data-ng-model="payment.amount">
+	</div>
+	<div>
+		<label>Recurring</label>
+		<input type="checkbox" name="recurring" data-ng-model="payment.recurring">
+	</div>
+	<button type="submit" class="btn btn-submit">Create</button>
+</form>
