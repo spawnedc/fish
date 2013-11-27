@@ -5,22 +5,22 @@
 	</div>
 </div>
 
-<form name="paymentCreateForm" data-ng-submit="createPayment()">
+<form name="paymentCreateForm" data-ng-submit="createPayment()" novalidate>
 	<div>
 		<label>Title</label>
-		<input type="text" name="title" data-ng-model="payment.title">
+		<input type="text" name="title" data-ng-model="payment.title" required>
 	</div>
 	<div>
 		<label>Start date</label>
-		<input type="date" name="start_date" data-ng-model="payment.start_date">
+		<input type="date" name="start_date" data-ng-model="payment.start_date" required>
 	</div>
 	<div>
 		<label>Amount</label>
-		<input type="number" name="amount" data-ng-model="payment.amount">
+		<input type="number" name="amount" data-ng-model="payment.amount" min="0" required>
 	</div>
 	<div>
 		<label>Recurring</label>
-		<input type="checkbox" name="recurring" data-ng-model="payment.recurring">
+		<input type="checkbox" name="is_recurring" data-ng-model="payment.is_recurring">
 	</div>
 	<button type="submit" class="btn btn-submit">Create</button>
 </form>

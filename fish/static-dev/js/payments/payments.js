@@ -25,7 +25,7 @@
 			});
 		}])
 
-		.controller('PaymentCreateCtrl', ['$scope', 'PaymentService', function ($scope, PaymentService) {
+		.controller('PaymentCreateCtrl', ['$scope', '$location', 'PaymentService', function ($scope, $location, PaymentService) {
 			$scope.page.section = 'payments';
 			$scope.page.title = 'Create new payment';
 			$scope.payment = {};
@@ -35,6 +35,9 @@
 
 				paymentPromise.then(function (response) {
 					console.warn(response);
+					$location.path('/payments');
+				}, function (errors) {
+					console.warn(errors.data);
 				});
 			};
 		}]);
